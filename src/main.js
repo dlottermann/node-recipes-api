@@ -4,7 +4,7 @@ const cors = require('cors')
 const app = express()
 
 const dotenv = require('dotenv')
-// const routes = require('../src/routes')
+const routes = require('../src/routes')
 
 dotenv.config()
 const port = process.env.PORT
@@ -14,7 +14,7 @@ app.use(bodyParser.urlencoded({ extended: false }))
 
 app.use(cors())
 
-// routes(app)
+routes(app)
 
 app.listen(port, function () {
   console.log('API de Exemplo escutando na porta :' + port)
