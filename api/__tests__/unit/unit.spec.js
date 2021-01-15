@@ -34,16 +34,6 @@ describe('Test searchRecipe module', () => {
     expect('Ingredients size length exceed max. (Max 3)').toBe(response.body)
   })
 
-  test('should return statusCode 200 and results exists if request success', async () => {
-    const ingredients = ['garlic', 'tomato', 'eggs']
-
-    axios.get.mockImplementation(() => Promise.resolve({ data }))
-
-    const response = await searchRecipe(ingredients)
-    expect(true).toBe(Object.values(response.body.recipes).length > 0)
-    expect(200).toBe(response.statusCode)
-  })
-
   test('should return message empty and statusCode 200 if recipes is empty', async () => {
     const ingredients = ['any', 'another', 'recipe']
     axios.get.mockImplementation(() => Promise.resolve({ data: dataEmpty }))
@@ -64,6 +54,26 @@ describe('Test searchRecipe module', () => {
       'Request fail! Try again later'
     )
   })
+
+  test('should return statusCode 200 and results exists if 1 ingredient is provided', async () => {
+    const ingredients = ['tomato']
+
+    axios.get.mockImplementation(() => Promise.resolve({ data }))
+
+    const response = await searchRecipe(ingredients)
+    expect(true).toBe(Object.values(response.body.recipes).length > 0)
+    expect(200).toBe(response.statusCode)
+  })
+
+  test('should return statusCode 200 and results exists if request success', async () => {
+    const ingredients = ['garlic', 'tomato', 'eggs']
+
+    axios.get.mockImplementation(() => Promise.resolve({ data }))
+
+    const response = await searchRecipe(ingredients)
+    expect(true).toBe(Object.values(response.body.recipes).length > 0)
+    expect(200).toBe(response.statusCode)
+  })
 })
 
 describe('Test searchGiphy module', () => {
@@ -81,16 +91,6 @@ describe('Test searchGiphy module', () => {
     expect(400).toBe(response.statusCode)
     expect('Only string it is allowed').toBe(response.body)
   })
-  test('should return statusCode 200 and results exists if request success', async () => {
-    const title = 'Greek Omelete'
-
-    axios.get.mockImplementation(() => Promise.resolve({ data: giphy }))
-
-    const response = await searchGiphy(title)
-    expect(true).toBe(Object.values(response.body.data).length > 0)
-    expect(200).toBe(response.statusCode)
-  })
-
   test('should return message empty and statusCode 200 if recipes is empty', async () => {
     const title = 'anyFindserror'
     axios.get.mockImplementation(() => Promise.resolve({ data: giphyEmpty }))
@@ -110,5 +110,14 @@ describe('Test searchGiphy module', () => {
     await expect(searchGiphy(title)).rejects.toThrow(
       'Request fail! Try again later'
     )
+  })
+  test('should return statusCode 200 and results exists if request success', async () => {
+    const title = 'Greek Omelete'
+
+    axios.get.mockImplementation(() => Promise.resolve({ data: giphy }))
+
+    const response = await searchGiphy(title)
+    expect(true).toBe(Object.values(response.body.data).length > 0)
+    expect(200).toBe(response.statusCode)
   })
 })
