@@ -146,8 +146,8 @@ Acesse o endereço `localhost:8000` e você deverá obter como resposta:
 ## Configuração
 
   
-O projeto depende de três variáveis armazenadas em um arquivo de ambiente (`.env`), no formato `VAR=valor`.
-
+O projeto depende de quatro variáveis de ambiente aramzenadas em um arquivo (`.env`), no formato `VAR=valor`.
+<sub>Um arquivo de exemplo está incluso na raiz da pasta `api/` - basta renomear para .env e informar o valor da API_KEY</sub>
 
 As variáveis são:
 
