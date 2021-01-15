@@ -46,20 +46,10 @@ Para obter uma cópia do projeto, clone o repositório executando o seguinte com
 
 ```shell
 
-  
-
 git clone https://github.com/dlottermann/node-recipes-api
-
-  
-
-cd node-recipes-api/
-
-  
+cd node-recipes-api/ 
 
 ```
-
-  
-
   
 
 Insira sua chave de acesso à [API do Giphy](https://developers.giphy.com/docs/) (necessário cadastro) na variável `API_KEY` em `config/.env.example` e renomeie o arquivo para `.env`.
@@ -78,12 +68,8 @@ Em seguida, você pode rodar o projeto diretamente com o Docker Compose com o co
 
 ```shell
 
-  
-
 docker-compose -up
-
-  
-
+ 
 ```
 
 <sub>Obs.: Como o intuito do projeto é apenas rodar a aplicação de uma maneira simples e rápida utilizando docker alguns parâmetros foram omitidos, mas nada impede de serem adicionados demais parâmetros </sub>
@@ -96,22 +82,16 @@ A primeira vez que o comando é executado o docker fará o download da imagem pa
 
 API escutando na porta :8000
 
-  
-
 Acesse o endereço `localhost:8000` e você deverá obter como resposta:
-
   
 
 ```json
-
 {
 
 "body": "Hello API recipes"
 
 }
-
-  
-
+ 
 ```
 
   
@@ -129,94 +109,71 @@ Para executar diretamente o projeto você deve navegar até a pasta api/ na raiz
   
 
 # yarn
-
-  
-
+ 
 yarn install
 
-  
-
 yarn start
-
-  
+ 
 
 ou
 
-  
-
 # npm
 
-  
-
-npm install
-
-  
+npm install  
 
 npm start
 
-  
-
 ```
 
+
+Uma mensagem como a abaixo deve aparecer no console:
+
+API escutando na porta :8000
+
+Acesse o endereço `localhost:8000` e você deverá obter como resposta:
   
+
+```json
+{
+
+"body": "Hello API recipes"
+
+}
+ 
+```
+
 
 ## Configuração
 
   
-
-  
-
 O projeto depende de três variáveis armazenadas em um arquivo de ambiente (`.env`), no formato `VAR=valor`.
 
-  
-
-  
 
 As variáveis são:
 
-  
 
 - `GIPHY_API`: URL da API de buscas do Giphy. **Obrigatória**.
-
-  
 
 > Padrão: http://api.giphy.com/v1/gifs/search
 
   
-
-  
-
-- `GIPHY_API_KEY`: chave de acesso à API do Giphy. **Obrigatória**.
-
-  
+- `API_KEY`: chave de acesso à API do Giphy. **Obrigatória**.
 
 > Chaves podem ser solicitadas seguindo a documentação disponível em: https://developers.giphy.com/docs/
-
-  
-
   
 
 - `RECIPE_PUPPY_API`: URL da API pública do Recipe Puppy. **Obrigatória**.
 
-  
-
 > Padrão: http://www.recipepuppy.com/api/
 
   
+- `LIMIT`: limite de retorno da API do Giphy. **Obrigatória**.
+  
+> Padrão: 1
 
-  
-  
-  
 
-> Se alguma das variáveis não for preenchida, será lançado um erro `Improperly configured`.
-
-  
-
-  
 
 ## Referência de uso
-
-  
 
   
 
