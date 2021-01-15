@@ -14,8 +14,10 @@ app.use(bodyParser.urlencoded({ extended: false }))
 
 app.use(cors())
 
-routes(app)
+app.use('/', routes)
 
 app.listen(port, function () {
-  console.log('API de Exemplo escutando na porta :' + port)
+  console.log('API escutando na porta :' + port)
 })
+
+module.exports = app
